@@ -1,0 +1,16 @@
+.v-application--is-ltr{
+    & .v-list-item {
+        border-radius: 0 10px 10px 0;
+        margin-left  : 0;
+        margin-right  : 10px;
+        &::before {
+            border-radius: 0 10px 10px 0;
+        }
+    }
+   
+    & .me-10 {
+        margin-left: 0px !important;
+        margin-right: 10px !important;
+    }
+    
+}

@@ -1,0 +1,21 @@
+
+@font-face {
+    font-family: "Tjwal";
+    src: local("Tjwal"),
+         url(../../fonts/Tajawal-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "TEXT";
+    src: local("TEXT"),
+         url(../../fonts/TEXT.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "NUMBERS";
+    src: local("NUMBERS"),
+         url(../../fonts/NUMBERS.otf) format("truetype");
+}
+.v-application {
+    font-family: "Tjwal" ,sans-serif !important;
+}

@@ -1,0 +1,13 @@
+{
+  "table_page" : "viewing from {count} to",
+  "table_count" : "(Total Records {count})",
+  "no_categories" : "لا يوجد لديك اي مجموعات في الوقت الحالي",
+  "sidebar" : {
+    "categories" : "المجموعات",
+    "view" : "عرض"
+  },
+  "table" : {
+    "edit" : "edit",
+    "view" : "view"
+  }
+}

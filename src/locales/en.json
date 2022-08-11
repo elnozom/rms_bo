@@ -1,0 +1,13 @@
+{
+  "table_page" : "viewing from {count} to",
+  "no_categories" : "you don't have any categories right now",
+  "table_count" : "(Total Records {count})",
+  "sidebar" : {
+    "categories" : "Categories",
+    "view" : "View"
+  },
+  "table" : {
+    "edit" : "edit",
+    "view" : "view"
+  }
+}
