@@ -71,10 +71,16 @@ export default Vue.extend({
   },
   created(){
     if (this.input.initialFetch) this.getData()
-    bus.$on("changeStateAppForm", (state:any) => {
-        this.setModel(state[this.input.name])
-    });
-    bus.$on("changeFormStateKey", (payload:any) => {
+    // bus.$on("changeStateAppForm", (state:any) => {
+    //     this.setModel(state[this.input.name])
+    // });
+    // bus.$on("changeFormStateKey", (payload:any) => {
+    //   if (payload.key == this.input.name) {
+    //     this.setModel(payload.value)
+    //   }
+    // });
+
+    bus.$on("changeComboValue", (payload:any) => {
       if (payload.key == this.input.name) {
         this.setModel(payload.value)
       }

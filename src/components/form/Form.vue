@@ -78,6 +78,13 @@ export default Vue.extend({
     submit() {
       this.form.submitAction(this.$refs.appForm);
     },
+    async resetForm(){
+      const ref = this.$refs.appForm as any;
+      if(typeof ref != 'undefined') {
+        this.form.state = {}
+        await ref.reset();
+      }
+    },
     // this method will be code when any input in the form changed
     change(input: InputInterface) {
       this.form.valid = false;
@@ -95,11 +102,7 @@ export default Vue.extend({
   },
   created() {
     bus.$on("resetAppForm", () => {
-      const ref = this.$refs.appForm as any;
-      if(typeof ref != 'undefined') {
-        this.form.state = {}
-        ref.reset();
-      }
+      this.resetForm()
     });
     bus.$on("changeStateAppForm", () => {
       this.loading = true;
@@ -111,16 +114,20 @@ export default Vue.extend({
     //   console.log(this.$refs[payload].$el.focus())
     //   console.log("this.$refs[payload][0]")
     // });
-     bus.$on("changeFormStateKey", (payload : any) => {
+     bus.$on("changeFormStateKey", async (payload : any)  => {
+       if(payload.reset) {
+        await this.resetForm()
+       }
       this.loading = true;
       this.form.state[payload.key as keyof typeof this.form.state] = payload.value
+      bus.$emit('changeComboValue' , payload)
       this.loading = false;
     });
     bus.$on("validateAppForm", () => {
-     const ref = this.$refs.appForm as any;
-      if(typeof ref != 'undefined') {
-        ref.validate();
-      }
+    //  const ref = this.$refs.appForm as any;
+    //   if(typeof ref != 'undefined') {
+    //     ref.validate();
+    //   }
     });
     bus.$on("resetValidationAppForm", () => {
      const ref = this.$refs.appForm as any;
